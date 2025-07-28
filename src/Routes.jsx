@@ -1,60 +1,65 @@
-import React from "react";
-import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
-import ScrollToTop from "components/ScrollToTop";
-import ErrorBoundary from "components/ErrorBoundary";
-// Add your imports here
-import FinancialQuestionInputPage from "pages/financial-question-input";
-import InteractiveScenarioSimulatorPage from "pages/interactive-scenario-simulator";
-import NeuroscienceInsightsLibraryPage from "pages/neuroscience-insights-library";
-import FinancialHealthDashboardPage from "pages/financial-health-dashboard";
-import FinancialDataEntryDashboardPage from "pages/financial-data-entry-dashboard";
-import PersonalizedFinancialEquationVisualizationPage from "pages/personalized-financial-equation-visualization";
-import UserProfileSetupPage from "pages/user-profile-setup";
-import NotFound from "pages/NotFound";
 
-const Routes = () => {
+import React, { Suspense } from 'react';
+import { Routes as RouterRoutes, Route, Navigate } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
+import ScrollToTop from './components/ScrollToTop';
+
+// Lazy loading des pages pour optimiser les performances
+const UserProfileSetup = React.lazy(() => import('./pages/user-profile-setup'));
+const FinancialDataEntryDashboard = React.lazy(() => import('./pages/financial-data-entry-dashboard'));
+const FinancialHealthDashboard = React.lazy(() => import('./pages/financial-health-dashboard'));
+const FinancialQuestionInput = React.lazy(() => import('./pages/financial-question-input'));
+const PersonalizedFinancialEquationVisualization = React.lazy(() => import('./pages/personalized-financial-equation-visualization'));
+const InteractiveScenarioSimulator = React.lazy(() => import('./pages/interactive-scenario-simulator'));
+const NeuroscienceInsightsLibrary = React.lazy(() => import('./pages/neuroscience-insights-library'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
+
+// Composant de chargement
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="flex flex-col items-center space-y-4">
+      <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-text-secondary">Chargement...</p>
+    </div>
+  </div>
+);
+
+const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <ErrorBoundary>
       <ScrollToTop />
-      <ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
         <RouterRoutes>
-          <Route path="/" element={<FinancialHealthDashboardPage />} />
-          <Route path="/question" element={<FinancialQuestionInputPage />} />
-          <Route path="/simulator" element={<InteractiveScenarioSimulatorPage />} />
-          <Route path="/insights" element={<NeuroscienceInsightsLibraryPage />} />
-          <Route path="/dashboard" element={<FinancialHealthDashboardPage />} />
-          <Route path="/data-entry" element={<FinancialDataEntryDashboardPage />} />
-          <Route path="/equation" element={<PersonalizedFinancialEquationVisualizationPage />} />
-          <Route path="/profile" element={<UserProfileSetupPage />} />
+          {/* Redirection par défaut vers le profil utilisateur */}
+          <Route path="/" element={<Navigate to="/profile-setup" replace />} />
+          
+          {/* Configuration du profil utilisateur */}
+          <Route path="/profile-setup" element={<UserProfileSetup />} />
+          
+          {/* Saisie des données financières */}
+          <Route path="/financial-data-entry" element={<FinancialDataEntryDashboard />} />
+          
+          {/* Tableau de bord de santé financière */}
+          <Route path="/health-dashboard" element={<FinancialHealthDashboard />} />
+          
+          {/* Saisie de questions financières */}
+          <Route path="/financial-questions" element={<FinancialQuestionInput />} />
+          
+          {/* Visualisation de l'équation financière personnalisée */}
+          <Route path="/equation-visualization" element={<PersonalizedFinancialEquationVisualization />} />
+          
+          {/* Simulateur de scénarios interactifs */}
+          <Route path="/scenario-simulator" element={<InteractiveScenarioSimulator />} />
+          
+          {/* Bibliothèque d'insights neuroscientifiques */}
+          <Route path="/insights-library" element={<NeuroscienceInsightsLibrary />} />
+          
+          {/* Page 404 */}
           <Route path="*" element={<NotFound />} />
         </RouterRoutes>
-      </ErrorBoundary>
-    </BrowserRouter>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
-export default Routes;
-
-const Routes = () => {
-  return (
-    <BrowserRouter>
-      <ErrorBoundary>
-      <ScrollToTop />
-      <RouterRoutes>
-        {/* Define your routes here */}
-        <Route path="/" element={<FinancialHealthDashboardPage />} />
-        <Route path="/financial-question-input" element={<FinancialQuestionInputPage />} />
-        <Route path="/interactive-scenario-simulator" element={<InteractiveScenarioSimulatorPage />} />
-        <Route path="/neuroscience-insights-library" element={<NeuroscienceInsightsLibraryPage />} />
-        <Route path="/financial-health-dashboard" element={<FinancialHealthDashboardPage />} />
-        <Route path="/financial-data-entry-dashboard" element={<FinancialDataEntryDashboardPage />} />
-        <Route path="/personalized-financial-equation-visualization" element={<PersonalizedFinancialEquationVisualizationPage />} />
-        <Route path="/user-profile-setup" element={<UserProfileSetupPage />} />
-        <Route path="*" element={<NotFound />} />
-      </RouterRoutes>
-      </ErrorBoundary>
-    </BrowserRouter>
-  );
-};
-
-export default Routes;
+export default AppRoutes;
