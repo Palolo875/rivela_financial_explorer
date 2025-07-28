@@ -32,5 +32,23 @@ export default defineConfig({
   },
   preview: {
     port: 3001
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.js'],
+    css: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'src/test/',
+        '**/*.d.ts',
+        '**/*.config.js',
+        'dist/',
+        'coverage/'
+      ]
+    }
   }
 });

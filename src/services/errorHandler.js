@@ -1,6 +1,7 @@
 /**
  * Centralized error handling for AI services
  */
+import { ENV } from '../utils/constants';
 
 // Environment-aware logging
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -38,6 +39,15 @@ export class AIServiceError extends Error {
 
 export function handleAIError(error) {
   logger.error('AI Service Error:', error);
+  
+  // Send to monitoring service in production (async import without await)
+  if (ENV.isProduction) {
+    import('./monitoring').then(({ captureError }) => {
+      captureError(error, { context: 'AI_SERVICE' });
+    }).catch(() => {
+      // Monitoring service not available
+    });
+  }
   
   // Network errors
   if (error.message?.includes('fetch')) {
