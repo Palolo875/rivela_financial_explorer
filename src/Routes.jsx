@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
-import ScrollToTop from "components/ScrollToTop";
-import ErrorBoundary from "components/ErrorBoundary";
+import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
 // Add your imports here
-import FinancialQuestionInputPage from "pages/financial-question-input";
-import InteractiveScenarioSimulatorPage from "pages/interactive-scenario-simulator";
-import NeuroscienceInsightsLibraryPage from "pages/neuroscience-insights-library";
-import FinancialHealthDashboardPage from "pages/financial-health-dashboard";
-import FinancialDataEntryDashboardPage from "pages/financial-data-entry-dashboard";
-import PersonalizedFinancialEquationVisualizationPage from "pages/personalized-financial-equation-visualization";
-import UserProfileSetupPage from "pages/user-profile-setup";
-import NotFound from "pages/NotFound";
+import FinancialQuestionInputPage from "./pages/financial-question-input";
+import InteractiveScenarioSimulatorPage from "./pages/interactive-scenario-simulator";
+import NeuroscienceInsightsLibraryPage from "./pages/neuroscience-insights-library";
+import FinancialHealthDashboardPage from "./pages/financial-health-dashboard";
+import FinancialDataEntryDashboardPage from "./pages/financial-data-entry-dashboard";
+import PersonalizedFinancialEquationVisualizationPage from "./pages/personalized-financial-equation-visualization";
+import UserProfileSetupPage from "./pages/user-profile-setup";
+import NotFound from "./pages/NotFound";
 
 const Routes = () => {
   return (

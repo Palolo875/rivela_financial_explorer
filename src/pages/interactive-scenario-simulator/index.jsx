@@ -149,7 +149,7 @@ const InteractiveScenarioSimulator = () => {
       details: 'Ajustez les paramètres en temps réel et comparez les résultats.',
       action: {
         label: 'Commencer l\'exploration',
-        handler: () => console.log('Starting exploration...')
+        handler: () => {/* Starting exploration... */}
       }
     };
     setNotifications([welcomeNotification]);
@@ -242,7 +242,7 @@ const InteractiveScenarioSimulator = () => {
       message: 'Votre rapport de scénarios a été exporté au format PDF.',
       action: {
         label: 'Télécharger',
-        handler: () => console.log('Downloading PDF...')
+        handler: () => {/* Downloading PDF... */}
       }
     };
     setNotifications(prev => [exportNotification, ...prev.slice(0, 2)]);

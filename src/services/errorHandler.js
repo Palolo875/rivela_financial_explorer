@@ -2,17 +2,42 @@
  * Centralized error handling for AI services
  */
 
+// Environment-aware logging
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+// Simple logger that respects environment
+const logger = {
+  error: (message, error) => {
+    if (isDevelopment) {
+      console.error(message, error);
+    }
+    // In production, you could send to monitoring service
+    // Example: sendToMonitoring({ level: 'error', message, error });
+  },
+  warn: (message, data) => {
+    if (isDevelopment) {
+      console.warn(message, data);
+    }
+  },
+  info: (message, data) => {
+    if (isDevelopment) {
+      console.info(message, data);
+    }
+  }
+};
+
 export class AIServiceError extends Error {
   constructor(message, code = 'AI_ERROR', details = null) {
     super(message);
     this.name = 'AIServiceError';
     this.code = code;
     this.details = details;
+    this.timestamp = new Date().toISOString();
   }
 }
 
 export function handleAIError(error) {
-  console.error('AI Service Error:', error);
+  logger.error('AI Service Error:', error);
   
   // Network errors
   if (error.message?.includes('fetch')) {
@@ -93,3 +118,6 @@ export function createFallbackResponse(type = 'analysis') {
       return null;
   }
 }
+
+// Export logger for use in other modules
+export { logger };

@@ -119,11 +119,11 @@ const ExportModal = ({
       
       // Simulate file download
       const filename = `rivela-financial-report-${new Date().toISOString().split('T')[0]}.${exportFormat}`;
-      console.log('Exporting:', filename, exportData);
+      // Exporting data...
       
       onClose();
     } catch (error) {
-      console.error('Export failed:', error);
+      // Export failed
     } finally {
       setIsExporting(false);
     }

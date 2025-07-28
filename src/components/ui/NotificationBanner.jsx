@@ -217,7 +217,7 @@ export const NotificationExample = () => {
         details: 'Basé sur l\'analyse de vos 3 derniers mois de transactions.',
         action: {
           label: 'Voir les détails',
-          handler: () => console.log('Navigating to insights...')
+          handler: () => {/* Navigate to insights */}
         }
       },
       success: {
@@ -227,7 +227,7 @@ export const NotificationExample = () => {
         message: 'Félicitations ! Vous avez atteint votre objectif d\'épargne mensuel.',
         action: {
           label: 'Définir un nouvel objectif',
-          handler: () => console.log('Setting new goal...')
+          handler: () => {/* Set new goal */}
         }
       },
       warning: {
@@ -237,7 +237,7 @@ export const NotificationExample = () => {
         message: 'Vos dépenses ce mois-ci dépassent la moyenne de 23%. Voulez-vous ajuster votre budget ?',
         action: {
           label: 'Ajuster le budget',
-          handler: () => console.log('Adjusting budget...')
+          handler: () => {/* Adjust budget */}
         }
       },
       achievement: {
