@@ -98,20 +98,20 @@ const ModernSidebar = () => {
 
   return (
     <aside className={`
-      fixed left-0 top-0 h-full bg-white border-r border-gray-200 z-40 transition-all duration-300 ease-in-out
+      fixed left-0 top-0 h-full bg-gray-900 z-40 transition-all duration-300 ease-in-out
       ${isCollapsed ? 'w-16' : 'w-60'}
     `}>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-100">
+        <div className="flex items-center justify-between p-4 border-b border-gray-800">
           {!isCollapsed && (
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                 <Icon name="TrendingUp" size={18} color="white" />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-gray-900 text-sm">Rivela</span>
-                <span className="text-xs text-gray-500">Financial Explorer</span>
+                <span className="font-semibold text-white text-sm">Rivela</span>
+                <span className="text-xs text-gray-400">Financial Explorer</span>
               </div>
             </div>
           )}
@@ -119,7 +119,7 @@ const ModernSidebar = () => {
             variant="ghost"
             size="sm"
             onClick={toggleSidebar}
-            className="p-1"
+            className="p-1 text-gray-400 hover:text-white hover:bg-gray-800"
           >
             <Icon name={isCollapsed ? "ChevronRight" : "ChevronLeft"} size={16} />
           </Button>
@@ -130,7 +130,7 @@ const ModernSidebar = () => {
           {navigationSections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="px-3 mb-6">
               {section.title && !isCollapsed && (
-                <h3 className="mb-3 px-3 text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <h3 className="mb-3 px-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                   {section.title}
                 </h3>
               )}
@@ -142,9 +142,10 @@ const ModernSidebar = () => {
                       key={item.id}
                       onClick={() => handleNavigation(item.path)}
                       className={`
-                        w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors
+                        w-full flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200
                         ${isActive 
-                          ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' :'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                          ? 'bg-blue-600 text-white shadow-lg' 
+                          : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                         }
                         ${isCollapsed ? 'justify-center' : 'justify-start'}
                       `}
@@ -152,8 +153,8 @@ const ModernSidebar = () => {
                     >
                       <Icon 
                         name={item.icon} 
-                        size={18} 
-                        color={isActive ? '#1d4ed8' : 'currentColor'} 
+                        size={20} 
+                        color={isActive ? '#ffffff' : 'currentColor'} 
                       />
                       {!isCollapsed && (
                         <span className="ml-3">{item.label}</span>
@@ -167,17 +168,17 @@ const ModernSidebar = () => {
         </nav>
 
         {/* Settings */}
-        <div className="p-3 border-t border-gray-100">
+        <div className="p-3 border-t border-gray-800">
           <button
             onClick={() => handleNavigation('/settings')}
             className={`
-              w-full flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg
-              hover:bg-gray-50 hover:text-gray-900 transition-colors
+              w-full flex items-center px-3 py-3 text-sm font-medium text-gray-300 rounded-lg
+              hover:bg-gray-800 hover:text-white transition-all duration-200
               ${isCollapsed ? 'justify-center' : 'justify-start'}
             `}
             title={isCollapsed ? 'Settings' : ''}
           >
-            <Icon name="Settings" size={18} />
+            <Icon name="Settings" size={20} />
             {!isCollapsed && <span className="ml-3">Settings</span>}
           </button>
         </div>
