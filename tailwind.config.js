@@ -83,11 +83,30 @@ module.exports = {
           2: "var(--color-chart-2)",
           3: "var(--color-chart-3)",
           4: "var(--color-chart-4)",
+          5: "var(--color-chart-5)",
+          6: "var(--color-chart-6)",
         },
+        // Glassmorphism specific colors
+        glass: {
+          white: "var(--glass-white)",
+          light: "var(--glass-light)",
+          medium: "var(--glass-medium)",
+          subtle: "var(--glass-subtle)",
+          border: "var(--glass-border)",
+          "border-hover": "var(--glass-border-hover)",
+        },
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-success': 'var(--gradient-success)',
+        'gradient-warning': 'var(--gradient-warning)',
+        'gradient-rose': 'var(--gradient-rose)',
       },
       fontFamily: {
         heading: ['Inter', 'sans-serif'],
-        body: ['Source Sans 3', 'sans-serif'],
+        body: ['Inter', 'sans-serif'], // Changed to Inter for consistency
         caption: ['Inter', 'sans-serif'],
         data: ['JetBrains Mono', 'monospace'],
       },
@@ -110,27 +129,35 @@ module.exports = {
         bold: '700',
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--radius-lg)",
+        md: "var(--radius-md)",
+        sm: "var(--radius-sm)",
+        xl: "var(--radius-xl)",
+        "2xl": "var(--radius-2xl)",
       },
       boxShadow: {
-        'glass': '0 4px 20px rgba(79, 70, 229, 0.08)',
-        'glass-hover': '0 8px 32px rgba(79, 70, 229, 0.12)',
-        'glass-focus': '0 0 0 2px rgba(79, 70, 229, 0.2)',
-        'modern': 'var(--shadow-md)',
-        'modern-lg': 'var(--shadow-lg)',
+        'glass': 'var(--shadow-glass)',
+        'glass-hover': 'var(--shadow-glass-hover)',
+        'glass-focus': 'var(--shadow-glass-focus)',
+        'soft': 'var(--shadow-soft)',
+        'medium': 'var(--shadow-medium)',
+        'strong': 'var(--shadow-strong)',
       },
       backdropBlur: {
         'glass': '10px',
         'glass-intense': '16px',
+        'glass-subtle': '6px',
       },
       animation: {
         'fade-in': 'fadeIn 300ms ease-out',
         'slide-in': 'slideIn 300ms ease-out',
         'scale-in': 'scaleIn 300ms ease-out',
+        'glass-in': 'glassIn 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
         'celebration': 'celebration 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55)',
         'breathe': 'breathe 4s ease-in-out infinite',
+        'coin-drop': 'coinDrop 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'vaporize': 'vaporize 600ms ease-out forwards',
+        'micro-bounce': 'microBounce 300ms ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -145,14 +172,54 @@ module.exports = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+        glassIn: {
+          '0%': { 
+            opacity: '0', 
+            transform: 'translateY(10px) scale(0.98)',
+            backdropFilter: 'blur(0px)'
+          },
+          '100%': { 
+            opacity: '1', 
+            transform: 'translateY(0) scale(1)',
+            backdropFilter: 'blur(10px)'
+          },
+        },
         celebration: {
           '0%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.05)' },
-          '100%': { transform: 'scale(1)' },
+          '25%': { transform: 'scale(1.05) rotate(1deg)' },
+          '50%': { transform: 'scale(1.08) rotate(-1deg)' },
+          '75%': { transform: 'scale(1.03) rotate(0.5deg)' },
+          '100%': { transform: 'scale(1) rotate(0deg)' },
         },
         breathe: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.02)' },
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.02)', opacity: '0.95' },
+        },
+        coinDrop: {
+          '0%': { 
+            transform: 'translateY(-20px) scale(0.8) rotate(0deg)', 
+            opacity: '0' 
+          },
+          '30%': { 
+            transform: 'translateY(5px) scale(1.1) rotate(180deg)', 
+            opacity: '1' 
+          },
+          '60%': { 
+            transform: 'translateY(-2px) scale(0.95) rotate(270deg)' 
+          },
+          '100%': { 
+            transform: 'translateY(0) scale(1) rotate(360deg)', 
+            opacity: '1' 
+          },
+        },
+        vaporize: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.1)', opacity: '0.7' },
+          '100%': { transform: 'scale(1.3)', opacity: '0' },
+        },
+        microBounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-2px)' },
         },
       },
       spacing: {
@@ -167,6 +234,16 @@ module.exports = {
         '900': '900',
         '1000': '1000',
         '1100': '1100',
+      },
+      transitionTimingFunction: {
+        'glass': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'spring': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+      },
+      transitionDuration: {
+        'glass': '300ms',
+        'spring': '400ms',
+        'bounce': '600ms',
       },
     },
   },

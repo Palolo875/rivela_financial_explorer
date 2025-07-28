@@ -10,6 +10,7 @@ import FinancialHealthDashboardPage from "pages/financial-health-dashboard";
 import FinancialDataEntryDashboardPage from "pages/financial-data-entry-dashboard";
 import PersonalizedFinancialEquationVisualizationPage from "pages/personalized-financial-equation-visualization";
 import UserProfileSetupPage from "pages/user-profile-setup";
+import GlassmorphismDemo from "pages/glassmorphism-demo";
 import NotFound from "pages/NotFound";
 
 const Routes = () => {
@@ -27,6 +28,7 @@ const Routes = () => {
         <Route path="/financial-data-entry-dashboard" element={<FinancialDataEntryDashboardPage />} />
         <Route path="/personalized-financial-equation-visualization" element={<PersonalizedFinancialEquationVisualizationPage />} />
         <Route path="/user-profile-setup" element={<UserProfileSetupPage />} />
+        <Route path="/glassmorphism-demo" element={<GlassmorphismDemo />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>

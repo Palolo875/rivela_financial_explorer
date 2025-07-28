@@ -8,85 +8,118 @@
 
 @layer base {
   :root {
-    /* Modern Dashboard Colors - Based on uploaded image */
-    --color-background: #F7FAFC; /* light gray background like the image */
-    --color-foreground: #1A202C; /* dark text */
-    --color-border: rgba(148, 163, 184, 0.2); /* subtle borders */
-    --color-input: #FFFFFF; /* pure white inputs */
-    --color-ring: #4299E1; /* blue accent */
+    /* === GLASSMORPHISM PASTEL SOFT DESIGN SYSTEM === */
+    /* Inspired by the detailed prompt for Rivela Financial Explorer */
     
-    /* Card Colors */
-    --color-card: #FFFFFF; /* white cards */
-    --color-card-foreground: #1A202C; /* dark text on cards */
-    --color-card-dark: #2D3748; /* dark accent cards like in image */
-    --color-card-dark-foreground: #FFFFFF; /* white text on dark cards */
+    /* Background Gradients - Dégradés subtils et lumineux */
+    --gradient-primary: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 25%, #FDF2F8 50%, #F3E8FF 75%, #E0F2FE 100%);
+    --gradient-secondary: linear-gradient(120deg, #F0F9FF 0%, #E0F2FE 30%, #FDF2F8 60%, #F3E8FF 100%);
+    --gradient-accent: linear-gradient(45deg, #6366F1 0%, #38BDF8 100%);
+    --gradient-success: linear-gradient(45deg, #5EEAD4 0%, #48BB78 100%);
+    --gradient-warning: linear-gradient(45deg, #FDE68A 0%, #F59E0B 100%);
+    --gradient-rose: linear-gradient(45deg, #FECACA 0%, #F472B6 100%);
+    
+    /* Glassmorphism Base Colors */
+    --glass-white: rgba(255, 255, 255, 0.85);
+    --glass-light: rgba(255, 255, 255, 0.70);
+    --glass-medium: rgba(255, 255, 255, 0.60);
+    --glass-subtle: rgba(255, 255, 255, 0.40);
+    
+    /* Glassmorphism Borders */
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-border-hover: rgba(255, 255, 255, 0.25);
+    
+    /* Core System Colors */
+    --color-background: #F7FAFC;
+    --color-foreground: #1E293B; /* Gris anthracite doux */
+    --color-border: var(--glass-border);
+    --color-input: var(--glass-white);
+    --color-ring: #6366F1; /* Bleu vif mais doux */
+    
+    /* Card Colors - Glassmorphism */
+    --color-card: var(--glass-white);
+    --color-card-foreground: #1E293B;
+    --color-card-dark: rgba(45, 55, 72, 0.90);
+    --color-card-dark-foreground: #FFFFFF;
     
     /* Sidebar Colors */
-    --color-sidebar: #FFFFFF; /* white sidebar */
-    --color-sidebar-foreground: #4A5568; /* gray text */
-    --color-sidebar-active: #4299E1; /* blue for active items */
-    --color-sidebar-hover: #EDF2F7; /* light gray hover */
+    --color-sidebar: var(--glass-white);
+    --color-sidebar-foreground: #64748B; /* Gris moyen */
+    --color-sidebar-active: #6366F1;
+    --color-sidebar-hover: rgba(99, 102, 241, 0.08);
     
     /* Popover Colors */
-    --color-popover: #FFFFFF; /* pure white */
-    --color-popover-foreground: #1A202C; /* dark text */
+    --color-popover: var(--glass-white);
+    --color-popover-foreground: #1E293B;
     
     /* Muted Colors */
-    --color-muted: #EDF2F7; /* very light gray like image */
-    --color-muted-foreground: #718096; /* balanced gray */
+    --color-muted: rgba(241, 245, 249, 0.80);
+    --color-muted-foreground: #64748B;
     
-    /* Primary Colors */
-    --color-primary: #4299E1; /* blue accent matching image */
-    --color-primary-foreground: #FFFFFF; /* white */
+    /* Primary Colors - Bleu inspiration */
+    --color-primary: #6366F1;
+    --color-primary-foreground: #FFFFFF;
     
-    /* Secondary Colors */
-    --color-secondary: #48BB78; /* green accent */
-    --color-secondary-foreground: #FFFFFF; /* white */
+    /* Secondary Colors - Vert/Turquoise */
+    --color-secondary: #5EEAD4;
+    --color-secondary-foreground: #FFFFFF;
     
-    /* Accent Colors */
-    --color-accent: #ED8936; /* orange accent */
-    --color-accent-foreground: #FFFFFF; /* white */
+    /* Accent Colors - Rose/Violet clair */
+    --color-accent: #C4B5FD;
+    --color-accent-foreground: #FFFFFF;
     
-    /* Success Colors */
-    --color-success: #48BB78; /* green */
-    --color-success-foreground: #FFFFFF; /* white */
+    /* Success Colors - Vert d'eau */
+    --color-success: #5EEAD4;
+    --color-success-foreground: #FFFFFF;
     
-    /* Warning Colors */
-    --color-warning: #ED8936; /* orange */
-    --color-warning-foreground: #FFFFFF; /* white */
+    /* Warning Colors - Orange/Jaune doux */
+    --color-warning: #FDE68A;
+    --color-warning-foreground: #92400E;
     
-    /* Error/Destructive Colors */
-    --color-error: #F56565; /* red */
-    --color-error-foreground: #FFFFFF; /* white */
-    --color-destructive: #F56565; /* red */
-    --color-destructive-foreground: #FFFFFF; /* white */
+    /* Error Colors */
+    --color-error: #FCA5A5;
+    --color-error-foreground: #FFFFFF;
+    --color-destructive: #FCA5A5;
+    --color-destructive-foreground: #FFFFFF;
     
-    /* Text Colors */
-    --color-text-primary: #1A202C; /* dark primary text */
-    --color-text-secondary: #718096; /* gray secondary text */
+    /* Text Colors - Inter font system */
+    --color-text-primary: #1E293B; /* Gris anthracite */
+    --color-text-secondary: #64748B; /* Gris moyen */
     
     /* Surface Color */
-    --color-surface: #FFFFFF; /* pure white */
+    --color-surface: var(--glass-white);
     
     /* Progress Colors */
-    --color-progress-bg: #E2E8F0; /* light gray background */
-    --color-progress-fill: #4299E1; /* blue fill */
+    --color-progress-bg: rgba(226, 232, 240, 0.60);
+    --color-progress-fill: #6366F1;
     
-    /* Chart Colors */
-    --color-chart-1: #4299E1; /* blue */
-    --color-chart-2: #48BB78; /* green */
-    --color-chart-3: #ED8936; /* orange */
-    --color-chart-4: #9F7AEA; /* purple */
+    /* Chart Colors - Palette inspirée des images */
+    --color-chart-1: #6366F1; /* Bleu */
+    --color-chart-2: #5EEAD4; /* Turquoise */
+    --color-chart-3: #C4B5FD; /* Violet clair */
+    --color-chart-4: #FDE68A; /* Jaune doux */
+    --color-chart-5: #38BDF8; /* Bleu clair */
+    --color-chart-6: #F472B6; /* Rose */
     
-    /* Modern Shadow Variables */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* Glassmorphism Shadow System */
+    --shadow-glass: 0 4px 20px rgba(79, 70, 229, 0.08);
+    --shadow-glass-hover: 0 8px 32px rgba(79, 70, 229, 0.12);
+    --shadow-glass-focus: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    --shadow-soft: 0 2px 16px rgba(148, 163, 184, 0.06);
+    --shadow-medium: 0 4px 24px rgba(148, 163, 184, 0.08);
+    --shadow-strong: 0 8px 40px rgba(148, 163, 184, 0.12);
     
-    /* Animation Variables */
-    --transition-standard: 200ms ease-out;
+    /* Border Radius System */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    
+    /* Animation System */
+    --transition-glass: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
   * {
@@ -94,79 +127,279 @@
   }
   
   body {
-    @apply bg-background text-foreground font-body;
+    @apply text-foreground font-body;
+    background: var(--gradient-primary);
+    background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* === GLASSMORPHISM CARD SYSTEM === */
+  .glass {
+    background: var(--glass-white);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-glass);
   }
   
-  /* Modern card utilities */
-  .card-white {
-    background: var(--color-card);
-    color: var(--color-card-foreground);
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid #E2E8F0;
-  }
-  
-  .card-dark {
-    background: var(--color-card-dark);
-    color: var(--color-card-dark-foreground);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-  }
-  
-  .card-hover:hover {
-    box-shadow: var(--shadow-lg);
+  .glass-hover:hover {
+    background: var(--glass-light);
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--shadow-glass-hover);
     transform: translateY(-1px);
   }
   
-  /* Sidebar utilities */
-  .sidebar-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    color: var(--color-sidebar-foreground);
-    transition: var(--transition-standard);
-    cursor: pointer;
+  .glass-intense {
+    background: var(--glass-light);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border-hover);
+    box-shadow: var(--shadow-glass-hover);
   }
   
-  .sidebar-item:hover {
-    background: var(--color-sidebar-hover);
+  .glass-subtle {
+    background: var(--glass-subtle);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft);
   }
   
-  .sidebar-item.active {
-    background: rgba(66, 153, 225, 0.1);
-    color: var(--color-sidebar-active);
-    font-weight: 500;
+  /* === MODERN CARD VARIANTS === */
+  .card-glass {
+    @apply glass rounded-2xl p-6;
   }
   
-  /* Progress utilities */
-  .progress-ring {
-    transform: rotate(-90deg);
+  .card-glass-sm {
+    @apply glass rounded-xl p-4;
   }
   
-  .progress-circle {
-    stroke: var(--color-progress-fill);
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s ease-in-out;
+  .card-glass-lg {
+    @apply glass rounded-3xl p-8;
   }
   
-  /* Smooth transitions */
-  .transition-standard {
-    transition: var(--transition-standard);
+  .card-gradient {
+    background: var(--gradient-secondary);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft);
+    @apply rounded-2xl p-6;
   }
   
-  .transition-spring {
-    transition: var(--transition-spring);
+  /* === BUTTON SYSTEM === */
+  .btn-glass {
+    @apply glass rounded-xl px-6 py-3 font-medium transition-all duration-300;
+    @apply hover:glass-hover focus:outline-none focus:ring-2 focus:ring-primary/20;
   }
   
-  /* Reduced motion support */
+  .btn-gradient {
+    background: var(--gradient-accent);
+    @apply text-white rounded-xl px-6 py-3 font-medium shadow-glass;
+    @apply hover:shadow-glass-hover focus:outline-none focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-300;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent border border-glass-border rounded-xl px-6 py-3;
+    @apply text-text-primary font-medium transition-all duration-300;
+    @apply hover:bg-glass-subtle hover:border-glass-border-hover;
+  }
+  
+  /* === INPUT SYSTEM === */
+  .input-glass {
+    @apply glass rounded-lg px-4 py-3 w-full;
+    @apply text-text-primary placeholder:text-text-secondary;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/20;
+    @apply focus:border-primary/30 transition-all duration-300;
+  }
+  
+  /* === NAVIGATION SYSTEM === */
+  .nav-item {
+    @apply flex items-center space-x-3 px-4 py-3 rounded-xl;
+    @apply text-text-secondary font-medium transition-all duration-300;
+    @apply hover:text-primary hover:bg-primary/5;
+  }
+  
+  .nav-item-active {
+    @apply nav-item bg-primary/10 text-primary;
+    @apply shadow-glass-focus;
+  }
+  
+  /* === CHART AND DATA VISUALIZATION === */
+  .chart-container {
+    @apply glass rounded-2xl p-6;
+  }
+  
+  .data-point {
+    @apply transition-all duration-300 hover:scale-110;
+  }
+  
+  /* === ANIMATION UTILITIES === */
+  .animate-glass-in {
+    animation: glassIn 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-celebration {
+    animation: celebration 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+  
+  .animate-coin-drop {
+    animation: coinDrop 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .animate-vaporize {
+    animation: vaporize 600ms ease-out forwards;
+  }
+  
+  /* === MICRO-INTERACTIONS === */
+  .micro-bounce:hover {
+    animation: microBounce 300ms ease-out;
+  }
+  
+  .micro-glow:hover {
+    box-shadow: var(--shadow-glass-hover), 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+  
+  /* === PROGRESS SYSTEM === */
+  .progress-glass {
+    @apply glass rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-secondary;
+    @apply transition-all duration-1000 ease-out;
+  }
+  
+  /* === RESPONSIVE UTILITIES === */
+  @media (max-width: 768px) {
+    .glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  }
+  
+  /* === REDUCED MOTION SUPPORT === */
   @media (prefers-reduced-motion: reduce) {
-    .transition-standard,
-    .transition-spring,
-    .card-hover:hover {
+    .glass,
+    .glass-hover:hover,
+    .btn-glass,
+    .btn-gradient,
+    .input-glass,
+    .nav-item,
+    .animate-glass-in,
+    .animate-celebration,
+    .animate-breathe,
+    .animate-coin-drop,
+    .animate-vaporize,
+    .micro-bounce:hover {
       transition: none;
+      animation: none;
       transform: none;
     }
+  }
+}
+
+@layer utilities {
+  /* === KEYFRAME ANIMATIONS === */
+  @keyframes glassIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+      backdrop-filter: blur(0px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  @keyframes celebration {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05) rotate(1deg); }
+    50% { transform: scale(1.08) rotate(-1deg); }
+    75% { transform: scale(1.03) rotate(0.5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+  
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.95; }
+  }
+  
+  @keyframes coinDrop {
+    0% { 
+      transform: translateY(-20px) scale(0.8) rotate(0deg); 
+      opacity: 0; 
+    }
+    30% { 
+      transform: translateY(5px) scale(1.1) rotate(180deg); 
+      opacity: 1; 
+    }
+    60% { 
+      transform: translateY(-2px) scale(0.95) rotate(270deg); 
+    }
+    100% { 
+      transform: translateY(0) scale(1) rotate(360deg); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes vaporize {
+    0% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+    50% { 
+      transform: scale(1.1); 
+      opacity: 0.7; 
+    }
+    100% { 
+      transform: scale(1.3); 
+      opacity: 0; 
+    }
+  }
+  
+  @keyframes microBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+  }
+  
+  /* === GRADIENT TEXT UTILITIES === */
+  .text-gradient-primary {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-success {
+    background: var(--gradient-success);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* === BACKDROP UTILITIES === */
+  .backdrop-glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .backdrop-glass-intense {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  .backdrop-glass-subtle {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 }
