@@ -6,167 +6,182 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* Modern Dashboard Colors - Based on uploaded image */
-    --color-background: #F7FAFC; /* light gray background like the image */
-    --color-foreground: #1A202C; /* dark text */
-    --color-border: rgba(148, 163, 184, 0.2); /* subtle borders */
-    --color-input: #FFFFFF; /* pure white inputs */
-    --color-ring: #4299E1; /* blue accent */
-    
-    /* Card Colors */
-    --color-card: #FFFFFF; /* white cards */
-    --color-card-foreground: #1A202C; /* dark text on cards */
-    --color-card-dark: #2D3748; /* dark accent cards like in image */
-    --color-card-dark-foreground: #FFFFFF; /* white text on dark cards */
-    
-    /* Sidebar Colors */
-    --color-sidebar: #FFFFFF; /* white sidebar */
-    --color-sidebar-foreground: #4A5568; /* gray text */
-    --color-sidebar-active: #4299E1; /* blue for active items */
-    --color-sidebar-hover: #EDF2F7; /* light gray hover */
-    
-    /* Popover Colors */
-    --color-popover: #FFFFFF; /* pure white */
-    --color-popover-foreground: #1A202C; /* dark text */
-    
-    /* Muted Colors */
-    --color-muted: #EDF2F7; /* very light gray like image */
-    --color-muted-foreground: #718096; /* balanced gray */
-    
-    /* Primary Colors */
-    --color-primary: #4299E1; /* blue accent matching image */
-    --color-primary-foreground: #FFFFFF; /* white */
-    
-    /* Secondary Colors */
-    --color-secondary: #48BB78; /* green accent */
-    --color-secondary-foreground: #FFFFFF; /* white */
-    
-    /* Accent Colors */
-    --color-accent: #ED8936; /* orange accent */
-    --color-accent-foreground: #FFFFFF; /* white */
-    
-    /* Success Colors */
-    --color-success: #48BB78; /* green */
-    --color-success-foreground: #FFFFFF; /* white */
-    
-    /* Warning Colors */
-    --color-warning: #ED8936; /* orange */
-    --color-warning-foreground: #FFFFFF; /* white */
-    
-    /* Error/Destructive Colors */
-    --color-error: #F56565; /* red */
-    --color-error-foreground: #FFFFFF; /* white */
-    --color-destructive: #F56565; /* red */
-    --color-destructive-foreground: #FFFFFF; /* white */
-    
-    /* Text Colors */
-    --color-text-primary: #1A202C; /* dark primary text */
-    --color-text-secondary: #718096; /* gray secondary text */
-    
-    /* Surface Color */
-    --color-surface: #FFFFFF; /* pure white */
-    
-    /* Progress Colors */
-    --color-progress-bg: #E2E8F0; /* light gray background */
-    --color-progress-fill: #4299E1; /* blue fill */
-    
-    /* Chart Colors */
-    --color-chart-1: #4299E1; /* blue */
-    --color-chart-2: #48BB78; /* green */
-    --color-chart-3: #ED8936; /* orange */
-    --color-chart-4: #9F7AEA; /* purple */
-    
-    /* Modern Shadow Variables */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
-    /* Animation Variables */
-    --transition-standard: 200ms ease-out;
-    --transition-spring: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+/* Custom CSS Variables */
+:root {
+  --color-border: #e5e7eb;
+  --color-input: #f9fafb;
+  --color-ring: #3b82f6;
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #f3f4f6;
+  --color-secondary-foreground: #1f2937;
+  
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  
+  --color-muted: #f9fafb;
+  --color-muted-foreground: #6b7280;
+  
+  --color-accent: #f3f4f6;
+  --color-accent-foreground: #1f2937;
+  
+  --color-popover: #ffffff;
+  --color-popover-foreground: #111827;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #111827;
+  --color-card-dark: #1f2937;
+  --color-card-dark-foreground: #ffffff;
+  
+  --color-sidebar: #111827;
+  --color-sidebar-foreground: #ffffff;
+  --color-sidebar-active: #3b82f6;
+  --color-sidebar-hover: #374151;
+  
+  --color-success: #10b981;
+  --color-success-foreground: #ffffff;
+  
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #ffffff;
+  
+  --color-error: #ef4444;
+  --color-error-foreground: #ffffff;
+  
+  --color-surface: #f9fafb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  
+  --color-progress-bg: #e5e7eb;
+  --color-progress-fill: #3b82f6;
+  
+  --color-chart-1: #3b82f6;
+  --color-chart-2: #10b981;
+  --color-chart-3: #f59e0b;
+  --color-chart-4: #ef4444;
+  
+  --radius: 0.75rem;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Components */
+@layer components {
+  .financial-card {
+    @apply relative overflow-hidden rounded-2xl p-6 shadow-lg;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
-  * {
-    @apply border-border;
+  .financial-card-light {
+    @apply relative overflow-hidden rounded-2xl p-6 shadow-sm;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
   }
   
-  body {
-    @apply bg-background text-foreground font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  /* Modern card utilities */
-  .card-white {
-    background: var(--color-card);
-    color: var(--color-card-foreground);
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid #E2E8F0;
-  }
-  
-  .card-dark {
-    background: var(--color-card-dark);
-    color: var(--color-card-dark-foreground);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-  }
-  
-  .card-hover:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-1px);
-  }
-  
-  /* Sidebar utilities */
   .sidebar-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    color: var(--color-sidebar-foreground);
-    transition: var(--transition-standard);
-    cursor: pointer;
+    @apply flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200;
   }
   
-  .sidebar-item:hover {
-    background: var(--color-sidebar-hover);
+  .sidebar-item-active {
+    @apply bg-blue-600 text-white shadow-lg;
   }
   
-  .sidebar-item.active {
-    background: rgba(66, 153, 225, 0.1);
-    color: var(--color-sidebar-active);
-    font-weight: 500;
+  .sidebar-item-inactive {
+    @apply text-gray-300 hover:bg-gray-800 hover:text-white;
   }
   
-  /* Progress utilities */
-  .progress-ring {
-    transform: rotate(-90deg);
+  .card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
   
-  .progress-circle {
-    stroke: var(--color-progress-fill);
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s ease-in-out;
+  .card-shadow-hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
   
-  /* Smooth transitions */
-  .transition-standard {
-    transition: var(--transition-standard);
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
   }
   
-  .transition-spring {
-    transition: var(--transition-spring);
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
   }
   
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .transition-standard,
-    .transition-spring,
-    .card-hover:hover {
-      transition: none;
-      transform: none;
-    }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
   }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus Styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
 }
