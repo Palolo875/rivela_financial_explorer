@@ -44,7 +44,7 @@ const FinancialDataEntryDashboard = () => {
         if (storedDebts) setDebtsData(JSON.parse(storedDebts));
         if (storedGoals) setGoalsData(JSON.parse(storedGoals));
       } catch (error) {
-        console.error('Error loading stored data:', error);
+        // Error loading stored data - using defaults
         addNotification({
           type: 'error',
           title: 'Erreur de chargement',
@@ -76,7 +76,7 @@ const FinancialDataEntryDashboard = () => {
           });
         }
       } catch (error) {
-        console.error('Error saving data:', error);
+        // Error saving data
         addNotification({
           type: 'error',
           title: 'Erreur de sauvegarde',

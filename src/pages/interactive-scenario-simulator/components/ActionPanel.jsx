@@ -42,7 +42,7 @@ const ActionPanel = ({ scenarios, onSaveScenario, onExportPDF, onShareScenario, 
       color: 'text-text-secondary',
       action: () => {
         // Reset all scenarios to default values
-        console.log('Resetting scenarios...');
+        // Resetting scenarios...
       }
     },
     {
@@ -51,7 +51,7 @@ const ActionPanel = ({ scenarios, onSaveScenario, onExportPDF, onShareScenario, 
       icon: 'Copy',
       color: 'text-primary',
       action: () => {
-        console.log('Duplicating scenario...');
+        // Duplicating scenario...
       }
     },
     {
@@ -60,7 +60,7 @@ const ActionPanel = ({ scenarios, onSaveScenario, onExportPDF, onShareScenario, 
       icon: 'GitCompare',
       color: 'text-secondary',
       action: () => {
-        console.log('Opening comparison view...');
+        // Opening comparison view...
       }
     }
   ];

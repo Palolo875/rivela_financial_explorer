@@ -131,7 +131,7 @@ const AudioSynthesis = ({
   const synthesisSegments = generateSynthesisContent();
 
   const handleSpeechError = (event, segmentId = null) => {
-    console.error('Speech synthesis error:', event.error);
+          // Speech synthesis error occurred
     
     const errorMessages = {
       'interrupted': 'La lecture a été interrompue. Cliquez sur "Reprendre" pour continuer.',

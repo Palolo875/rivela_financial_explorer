@@ -28,7 +28,7 @@ const FinancialQuestionInput = () => {
       try {
         setQuestionHistory(JSON.parse(savedHistory));
       } catch (error) {
-        console.error('Error loading question history:', error);
+        // Error loading question history - using empty array
       }
     }
 

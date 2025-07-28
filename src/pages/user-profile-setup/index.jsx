@@ -50,7 +50,7 @@ const UserProfileSetup = () => {
         const parsedProfile = JSON.parse(savedProfile);
         setProfileData({ ...profileData, ...parsedProfile });
       } catch (error) {
-        console.error('Error loading profile data:', error);
+        // Error loading profile data - using default values
       }
     }
 

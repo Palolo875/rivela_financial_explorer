@@ -1,5 +1,5 @@
 import groq from './groqClient';
-import { handleAIError, createFallbackResponse } from './errorHandler';
+import { handleAIError, createFallbackResponse, logger } from './errorHandler';
 
 /**
  * Analyzes a financial question and provides insights
@@ -96,7 +96,7 @@ Répondez en français avec un format structuré.`;
     };
   } catch (error) {
     const handledError = handleAIError(error);
-    console.warn('Falling back to demo insights:', handledError.message);
+    logger.warn('Falling back to demo insights:', handledError.message);
     
     return {
       insights: [
@@ -153,7 +153,7 @@ Répondez en français avec un format JSON structuré.`;
     return parseEquationFromResponse(response.choices[0].message.content);
   } catch (error) {
     const handledError = handleAIError(error);
-    console.warn('Falling back to demo equation:', handledError.message);
+    logger.warn('Falling back to demo equation:', handledError.message);
     
     return createFallbackResponse('equation');
   }
@@ -195,7 +195,7 @@ Répondez en français avec des données chiffrées précises.`;
 
     return parseScenarioFromResponse(response.choices[0].message.content, scenarioType);
   } catch (error) {
-    console.error('Error generating scenario:', error);
+    logger.error('Error generating scenario:', error);
     throw new Error('Erreur lors de la génération du scénario.');
   }
 }
@@ -232,7 +232,7 @@ export async function streamFinancialAdvice(message, onChunk, conversationHistor
       }
     }
   } catch (error) {
-    console.error('Error in streaming financial advice:', error);
+    logger.error('Error in streaming financial advice:', error);
     throw new Error('Erreur lors de la génération des conseils en temps réel.');
   }
 }
@@ -368,7 +368,7 @@ function parseEquationFromResponse(responseText) {
       ]
     };
   } catch (error) {
-    console.error('Error parsing equation:', error);
+    logger.error('Error parsing equation:', error);
     return null;
   }
 }

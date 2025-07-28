@@ -144,7 +144,7 @@ const PersonalizedFinancialEquationVisualization = () => {
           persistent: false
         }]);
         
-        console.error('AI initialization failed:', error);
+        // AI initialization failed - using fallback data
       }
     };
 
