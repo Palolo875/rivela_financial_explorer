@@ -108,7 +108,7 @@ const NotificationBanner = ({
     >
       {visibleNotifications.map((notification) => {
         const config = getNotificationConfig(notification.type);
-        
+
         return (
           <div
             key={notification.id}
@@ -139,7 +139,7 @@ const NotificationBanner = ({
                 <div className="text-sm text-text-primary leading-relaxed">
                   {notification.message}
                 </div>
-                
+
                 {notification.details && (
                   <div className="text-xs text-text-secondary mt-2 leading-relaxed">
                     {notification.details}
@@ -193,7 +193,7 @@ const NotificationBanner = ({
         );
       })}
 
-      <style jsx>{`
+      <style jsx={true}>{`
         @keyframes shrink {
           from { width: 100%; }
           to { width: 0%; }
