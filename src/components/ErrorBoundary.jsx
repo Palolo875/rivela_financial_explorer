@@ -1,6 +1,8 @@
 import React from "react";
 import Icon from "./AppIcon";
 
+export default ErrorBoundary;
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -53,5 +55,3 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;

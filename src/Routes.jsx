@@ -15,6 +15,29 @@ import NotFound from "pages/NotFound";
 const Routes = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+      <ErrorBoundary>
+        <RouterRoutes>
+          <Route path="/" element={<FinancialHealthDashboardPage />} />
+          <Route path="/question" element={<FinancialQuestionInputPage />} />
+          <Route path="/simulator" element={<InteractiveScenarioSimulatorPage />} />
+          <Route path="/insights" element={<NeuroscienceInsightsLibraryPage />} />
+          <Route path="/dashboard" element={<FinancialHealthDashboardPage />} />
+          <Route path="/data-entry" element={<FinancialDataEntryDashboardPage />} />
+          <Route path="/equation" element={<PersonalizedFinancialEquationVisualizationPage />} />
+          <Route path="/profile" element={<UserProfileSetupPage />} />
+          <Route path="*" element={<NotFound />} />
+        </RouterRoutes>
+      </ErrorBoundary>
+    </BrowserRouter>
+  );
+};
+
+export default Routes;
+
+const Routes = () => {
+  return (
+    <BrowserRouter>
       <ErrorBoundary>
       <ScrollToTop />
       <RouterRoutes>
